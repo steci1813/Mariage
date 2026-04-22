@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invitation digitale S&C 2026</title>
+  <style>
+    :root{
+      --navy:#082b57;
+      --navy-2:#0d3568;
+      --gold:#d8b45b;
+      --gold-soft:#f0dfab;
+      --cream:#f8f5ee;
+      --text:#1f2937;
+      --white:#ffffff;
+      --shadow:0 12px 30px rgba(0,0,0,.12);
+      --radius:22px;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family: "Georgia", "Times New Roman", serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height:1.6;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    .container{
+      width:min(1120px, 92%);
+      margin:auto;
+    }
+
+    .script{
+      font-family: "Brush Script MT", "Lucida Handwriting", cursive;
+      letter-spacing:.5px;
+    }
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background: rgba(8,43,87,.92);
+      backdrop-filter: blur(10px);
+      color:#fff;
+      border-bottom:1px solid rgba(216,180,91,.25);
+    }
+
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      padding:14px 0;
+      flex-wrap:wrap;
+    }
+
+    .brand{
+      font-size:1.2rem;
+      color:var(--gold-soft);
+      font-weight:bold;
+      letter-spacing:1px;
+    }
+
+    .menu{
+      display:flex;
+      flex-wrap:wrap;
+      gap:16px;
+      list-style:none;
+      font-size:.95rem;
+    }
+
+    .menu a{
+      color:#fff;
+      opacity:.92;
+    }
+
+    .menu a:hover{
+      color:var(--gold-soft);
+    }
+
+    .hero{
+      position:relative;
+      min-height:100vh;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,.16) 0 2px, transparent 2px 100%),
+        radial-gradient(circle at 80% 15%, rgba(255,255,255,.10) 0 1.5px, transparent 1.5px 100%),
+        radial-gradient(circle at 70% 35%, rgba(255,255,255,.12) 0 1.8px, transparent 1.8px 100%),
+        radial-gradient(circle at 35% 60%, rgba(255,255,255,.12) 0 2px, transparent 2px 100%),
+        linear-gradient(180deg, rgba(5,15,35,.15), rgba(5,15,35,.78)),
+        linear-gradient(135deg, #153764 0%, #081c3d 55%, #020d1f 100%);
+      color:#fff;
+      overflow:hidden;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 50% 15%, rgba(255,210,120,.22), transparent 28%),
+        radial-gradient(circle at 50% 100%, rgba(216,180,91,.18), transparent 35%);
+      pointer-events:none;
+    }
+
+    .hero-inner{
+      position:relative;
+      z-index:2;
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:30px;
+      align-items:center;
+      min-height:calc(100vh - 70px);
+      padding:60px 0;
+    }
+
+    .hero-copy{
+      max-width:680px;
+    }
+
+    .eyebrow{
+      color:var(--gold-soft);
+      text-transform:uppercase;
+      letter-spacing:2px;
+      font-size:.85rem;
+      margin-bottom:16px;
+    }
+
+    .hero h1{
+      font-size:clamp(3rem, 7vw, 5.7rem);
+      line-height:.95;
+      color:var(--gold-soft);
+      margin-bottom:8px;
+      text-shadow:0 2px 18px rgba(0,0,0,.25);
+    }
+
+    .hero h2{
+      font-size:clamp(1.2rem, 3vw, 2rem);
+      font-weight:normal;
+      margin-bottom:18px;
+      color:#f6e8c1;
+    }
+
+    .hero p{
+      max-width:620px;
+      font-size:1.08rem;
+      opacity:.96;
+      margin-bottom:26px;
+    }
+
+    .hero-details{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-bottom:24px;
+    }
+
+    .badge{
+      border:1px solid rgba(240,223,171,.35);
+      background:rgba(255,255,255,.08);
+      color:#fff;
+      padding:10px 14px;
+      border-radius:999px;
+      font-size:.95rem;
+    }
+
+    .hero-card{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(240,223,171,.18);
+      border-radius:28px;
+      padding:20px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-photo{
+      width:100%;
+      min-height:430px;
+      border-radius:22px;
+      overflow:hidden;
+      border:1px solid rgba(240,223,171,.2);
+      background:rgba(255,255,255,.08);
+    }
+
+    .hero-photo img{
+      width:100%;
+      height:100%;
+      min-height:430px;
+      object-fit:cover;
+      object-position:center;
+    }
+
+    .cta-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-top:10px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 22px;
+      border-radius:999px;
+      font-weight:bold;
+      transition:.25s ease;
+      text-align:center;
+    }
+
+    .btn-gold{
+      background:var(--gold);
+      color:#14243b;
+      box-shadow:0 8px 20px rgba(216,180,91,.24);
+    }
+
+    .btn-gold:hover{
+      transform:translateY(-2px);
+      background:#e5c56f;
+    }
+
+    .btn-outline{
+      border:1.5px solid rgba(240,223,171,.55);
+      color:#fff;
+      background:transparent;
+    }
+
+    .btn-outline:hover{
+      background:rgba(255,255,255,.08);
+      transform:translateY(-2px);
+    }
+
+    .section{
+      padding:82px 0;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:14px;
+      font-size:clamp(2rem, 5vw, 3.4rem);
+      color:var(--navy);
+    }
+
+    .section-subtitle{
+      text-align:center;
+      max-width:760px;
+      margin:0 auto 34px;
+      color:#5f6b7a;
+      font-size:1.03rem;
+    }
+
+    .ornament{
+      width:160px;
+      height:2px;
+      margin:0 auto 32px;
+      background:linear-gradient(90deg, transparent, var(--gold), transparent);
+      position:relative;
+    }
+
+    .ornament::before{
+      content:"✦";
+      position:absolute;
+      top:-13px;
+      left:50%;
+      transform:translateX(-50%);
+      color:var(--gold);
+      background:var(--cream);
+      padding:0 12px;
+      font-size:1rem;
+    }
+
+    .program-shell{
+      background:#fff;
+      border-radius:34px;
+      padding:30px 22px;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(8,43,87,.06);
+    }
+
+    .timeline{
+      max-width:880px;
+      margin:0 auto;
+      display:grid;
+      gap:22px;
+      position:relative;
+    }
+
+    .timeline::before{
+      content:"";
+      position:absolute;
+      left:50%;
+      top:0;
+      bottom:0;
+      width:2px;
+      background:linear-gradient(180deg, rgba(216,180,91,.1), rgba(216,180,91,.85), rgba(216,180,91,.1));
+      transform:translateX(-50%);
+    }
+
+    .timeline-item{
+      position:relative;
+      display:grid;
+      grid-template-columns:1fr 80px 1fr;
+      align-items:center;
+      gap:18px;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-card{
+      grid-column:1 / 2;
+      text-align:right;
+    }
+
+    .timeline-item:nth-child(even) .timeline-card{
+      grid-column:3 / 4;
+      text-align:left;
+    }
+
+    .timeline-dot{
+      width:58px;
+      height:58px;
+      border-radius:50%;
+      background:var(--navy);
+      color:var(--gold-soft);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:1.2rem;
+      margin:auto;
+      border:3px solid var(--gold);
+      box-shadow:0 6px 16px rgba(8,43,87,.18);
+      position:relative;
+      z-index:2;
+    }
+
+    .timeline-card{
+      background:linear-gradient(180deg, #fff, #fcfaf3);
+      border:1px solid rgba(216,180,91,.35);
+      border-radius:20px;
+      padding:18px 20px;
+      box-shadow:0 10px 24px rgba(0,0,0,.06);
+    }
+
+    .timeline-card h3{
+      color:var(--navy);
+      font-size:1.08rem;
+      margin-bottom:4px;
+    }
+
+    .timeline-card p{
+      color:#556070;
+      font-size:.97rem;
+    }
+
+    .band{
+      background:var(--navy);
+      color:#fff;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .band::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,.09) 0 2px, transparent 2px 100%),
+        radial-gradient(circle at 80% 10%, rgba(255,255,255,.08) 0 2px, transparent 2px 100%),
+        radial-gradient(circle at 65% 70%, rgba(255,255,255,.08) 0 2px, transparent 2px 100%);
+      opacity:.9;
+      pointer-events:none;
+    }
+
+    .band .section-title,
+    .band .section-subtitle{
+      color:#fff;
+      position:relative;
+      z-index:1;
+    }
+
+    .band-card{
+      position:relative;
+      z-index:1;
+      max-width:900px;
+      margin:auto;
+      text-align:center;
+      padding:34px 28px;
+      border:1px solid rgba(216,180,91,.28);
+      border-radius:26px;
+      background:rgba(255,255,255,.04);
+      box-shadow:var(--shadow);
+    }
+
+    .band-card p{
+      font-size:1.02rem;
+      max-width:760px;
+      margin:0 auto 14px;
+    }
+
+    .two-col{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+    }
+
+    .card{
+      background:#fff;
+      border-radius:24px;
+      padding:26px;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(8,43,87,.06);
+    }
+
+    .card h3{
+      color:var(--navy);
+      font-size:1.35rem;
+      margin-bottom:12px;
+    }
+
+    .card p{
+      color:#5a6472;
+      margin-bottom:12px;
+    }
+
+    .calendar-wrap{
+      text-align:center;
+    }
+
+    .calendar-box{
+      margin-top:16px;
+      background:var(--navy-2);
+      color:#fff;
+      border-radius:24px;
+      padding:22px;
+      max-width:420px;
+      margin-inline:auto;
+      box-shadow:0 14px 28px rgba(8,43,87,.18);
+      border:2px solid rgba(216,180,91,.35);
+    }
+
+    .calendar-month{
+      color:var(--gold-soft);
+      text-transform:uppercase;
+      letter-spacing:2px;
+      font-size:.9rem;
+      margin-bottom:16px;
+    }
+
+    .calendar-grid{
+      display:grid;
+      grid-template-columns:repeat(7, 1fr);
+      gap:8px;
+      font-size:.95rem;
+    }
+
+    .calendar-grid div{
+      padding:8px 0;
+      border-radius:999px;
+    }
+
+    .day-name{
+      color:#c9d8ef;
+      font-size:.82rem;
+      font-weight:bold;
+    }
+
+    .empty{
+      opacity:0;
+      pointer-events:none;
+    }
+
+    .highlight{
+      background:var(--gold);
+      color:#0f233f;
+      font-weight:bold;
+      box-shadow:0 4px 14px rgba(216,180,91,.32);
+    }
+
+    .gift-block{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+      align-items:start;
+    }
+
+    .location-box{
+      background:linear-gradient(180deg, #0c2f5d, #082546);
+      color:#fff;
+      border-radius:30px;
+      padding:36px 26px;
+      text-align:center;
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .location-box::after{
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      height:95px;
+      background:
+        radial-gradient(circle at 6% 100%, rgba(216,180,91,.85), transparent 20px),
+        radial-gradient(circle at 14% 100%, rgba(216,180,91,.6), transparent 30px),
+        radial-gradient(circle at 22% 100%, rgba(216,180,91,.8), transparent 24px),
+        radial-gradient(circle at 33% 100%, rgba(216,180,91,.7), transparent 26px),
+        radial-gradient(circle at 49% 100%, rgba(216,180,91,.85), transparent 20px),
+        radial-gradient(circle at 61% 100%, rgba(216,180,91,.7), transparent 24px),
+        radial-gradient(circle at 77% 100%, rgba(216,180,91,.8), transparent 22px),
+        radial-gradient(circle at 88% 100%, rgba(216,180,91,.6), transparent 28px);
+      opacity:.85;
+      pointer-events:none;
+    }
+
+    .location-box h3{
+      color:var(--gold-soft);
+      font-size:2.1rem;
+      margin-bottom:14px;
+    }
+
+    .location-box p{
+      max-width:720px;
+      margin:0 auto 14px;
+      font-size:1rem;
+    }
+
+    .map-image{
+      margin-top:28px;
+      border-radius:28px;
+      overflow:hidden;
+      border:3px solid #fff;
+      box-shadow:var(--shadow);
+      background:#ddd;
+    }
+
+    .map-image img{
+      width:100%;
+      height:auto;
+      object-fit:cover;
+    }
+
+    .details-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:18px;
+      margin-top:28px;
+    }
+
+    .detail-card{
+      background:#0b2d56;
+      color:#fff;
+      border:2px solid rgba(216,180,91,.55);
+      border-radius:22px;
+      padding:22px 18px;
+      text-align:center;
+      box-shadow:var(--shadow);
+    }
+
+    .detail-card .icon{
+      font-size:1.8rem;
+      margin-bottom:10px;
+    }
+
+    .detail-card h4{
+      color:var(--gold-soft);
+      margin-bottom:8px;
+      font-size:1rem;
+      letter-spacing:.4px;
+    }
+
+    .detail-card p{
+      font-size:.95rem;
+      color:#eff4fb;
+    }
+
+    .footer{
+      background:#05192f;
+      color:#dfe8f2;
+      text-align:center;
+      padding:26px 12px;
+      font-size:.95rem;
+    }
+
+    .small{
+      font-size:.92rem;
+      color:#6b7280;
+    }
+
+    @media (max-width: 980px){
+      .hero-inner,
+      .two-col,
+      .gift-block,
+      .details-grid{
+        grid-template-columns:1fr;
+      }
+
+      .timeline::before{
+        left:29px;
+      }
+
+      .timeline-item{
+        grid-template-columns:58px 1fr;
+      }
+
+      .timeline-dot{
+        grid-column:1 / 2;
+      }
+
+      .timeline-card,
+      .timeline-item:nth-child(odd) .timeline-card,
+      .timeline-item:nth-child(even) .timeline-card{
+        grid-column:2 / 3;
+        text-align:left;
+      }
+
+      .hero{
+        min-height:auto;
+      }
+
+      .hero-inner{
+        min-height:auto;
+      }
+    }
+
+    @media (max-width: 640px){
+      .hero h1{
+        line-height:1.02;
+      }
+
+      .hero-photo,
+      .hero-photo img{
+        min-height:300px;
+      }
+
+      .section{
+        padding:64px 0;
+      }
+
+      .card,
+      .band-card,
+      .location-box,
+      .program-shell{
+        padding:22px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="container nav">
+      <div class="brand">S&C 2026</div>
+      <ul class="menu">
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#programme">Programme</a></li>
+        <li><a href="#dresscode">Dress code</a></li>
+        <li><a href="#rsvp">RSVP</a></li>
+        <li><a href="#lieu">Lieu</a></li>
+        <li><a href="#details">Détails</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="hero" id="accueil">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <div class="eyebrow">And on this beautiful day</div>
+        <h1 class="script">Stéphane &amp; Cindria</h1>
+        <h2>Say Yes.</h2>
+        <p>
+          Our stars aligned. The universe had a plan. And it led us to this day.
+          Rejoins-nous le <strong>18-09-2026</strong> à l’espace <strong>Les Colonnades</strong>,
+          sortie village Manandona, By Pass côté Iavoloha.
+        </p>
+
+        <div class="hero-details">
+          <div class="badge">18-09-2026</div>
+          <div class="badge">Les Colonnades</div>
+          <div class="badge">10h00 du matin</div>
+        </div>
+
+        <div class="cta-row">
+          <a href="#rsvp" class="btn btn-gold">Je confirme ma présence</a>
+          <a href="#online" class="btn btn-outline">Suivre en ligne</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-photo">
+          <!-- ========================= -->
+          <!-- IMAGE 1 : PHOTO DU COUPLE -->
+          <!-- Remplace le fichier ci-dessous -->
+          <!-- par ta vraie photo -->
+          <!-- Exemple : images/stephane-cindria.jpg -->
+          <!-- ========================= -->
+          <img src="images/photo-couple.jpg" alt="Photo de Stéphane et Cindria">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="programme">
+    <div class="container">
+      <h2 class="section-title script">From Morning Light to Starlight</h2>
+      <div class="ornament"></div>
+      <p class="section-subtitle">
+        Une journée écrite dans les étoiles, du vodiondry jusqu’à la soirée dansante.
+      </p>
+
+      <div class="program-shell">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-card">
+              <h3>The Promise Begins</h3>
+              <p>Cérémonie traditionnelle — Vodiondry</p>
+            </div>
+            <div class="timeline-dot">①</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot">②</div>
+            <div class="timeline-card">
+              <h3>A Toast to New Beginnings</h3>
+              <p>Cocktail</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-card">
+              <h3>Sealed Under Heaven</h3>
+              <p>Cérémonie civile &amp; religieuse</p>
+            </div>
+            <div class="timeline-dot">③</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot">④</div>
+            <div class="timeline-card">
+              <h3>Captured Constellations</h3>
+              <p>Animations &amp; photos</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-card">
+              <h3>A Feast Among the Stars</h3>
+              <p>Dîner gastronomique raffiné</p>
+            </div>
+            <div class="timeline-dot">⑤</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot">⑥</div>
+            <div class="timeline-card">
+              <h3>The First Dance</h3>
+              <p>Ouverture de bal</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-card">
+              <h3>A Spark in the Night</h3>
+              <p>Gâteau &amp; sparkler</p>
+            </div>
+            <div class="timeline-dot">⑦</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot">⑧</div>
+            <div class="timeline-card">
+              <h3>Dancing Through the Cosmos</h3>
+              <p>Soirée &amp; danse</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band" id="dresscode">
+    <div class="container">
+      <h2 class="section-title script">Sous Votre Plus Bel Éclat</h2>
+      <div class="ornament" style="background:linear-gradient(90deg, transparent, rgba(216,180,91,.9), transparent);"></div>
+      <div class="band-card">
+        <p>
+          Pour cette journée écrite dans les étoiles, nous vous invitons à venir sur votre 31 :
+          costumes, robes, ensembles élégants…
+        </p>
+        <p>
+          Laissez parler votre style et ajoutez-y une subtile touche scintillante :
+          un détail lumineux, un bijou qui capte la lumière, une matière qui reflète le soleil,
+          ou un éclat discret sous les étoiles.
+        </p>
+        <p><strong>Créons ensemble une constellation d’élégance.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="online">
+    <div class="container">
+      <div class="two-col">
+        <div class="card">
+          <h3 class="script">For Our Loved Ones Joining Us Online</h3>
+          <p>
+            Même à distance, nous serions ravis de vous savoir parmi nous pour ce moment si spécial.
+          </p>
+          <p>
+            Pour ceux qui nous suivront en ligne, le lien de diffusion sera partagé ici quelques jours avant le grand jour.
+          </p>
+          <div class="cta-row">
+            <a href="#" class="btn btn-gold">Rejoindre la cérémonie en ligne</a>
+          </div>
+          <p class="small" style="margin-top:14px;">
+            Mets ici ton vrai lien de diffusion à la place du <code>#</code>.
+          </p>
+        </div>
+
+        <div class="card calendar-wrap" id="rsvp">
+          <h3 class="script">Will You Shine With Us?</h3>
+          <p>Merci de confirmer votre présence avant le <strong>18 juillet 2026</strong>.</p>
+
+          <div class="calendar-box">
+            <div class="calendar-month">Juillet 2026</div>
+            <div class="calendar-grid">
+              <div class="day-name">Lu</div>
+              <div class="day-name">Ma</div>
+              <div class="day-name">Me</div>
+              <div class="day-name">Je</div>
+              <div class="day-name">Ve</div>
+              <div class="day-name">Sa</div>
+              <div class="day-name">Di</div>
+
+              <div class="empty"></div>
+              <div class="empty"></div>
+
+              <div>1</div>
+              <div>2</div>
+              <div>3</div>
+              <div>4</div>
+              <div>5</div>
+
+              <div>6</div>
+              <div>7</div>
+              <div>8</div>
+              <div>9</div>
+              <div>10</div>
+              <div>11</div>
+              <div>12</div>
+
+              <div>13</div>
+              <div>14</div>
+              <div>15</div>
+              <div>16</div>
+              <div>17</div>
+              <div class="highlight">18</div>
+              <div>19</div>
+
+              <div>20</div>
+              <div>21</div>
+              <div>22</div>
+              <div>23</div>
+              <div>24</div>
+              <div>25</div>
+              <div>26</div>
+
+              <div>27</div>
+              <div>28</div>
+              <div>29</div>
+              <div>30</div>
+              <div>31</div>
+            </div>
+          </div>
+
+          <div class="cta-row" style="justify-content:center; margin-top:20px;">
+            <a href="https://form.typeform.com/to/j8RYE30d?typeform-source=xn--stphane-portfolio-ctb.my.canva.site" class="btn btn-gold">Je confirme ma présence</a>
+          </div>
+
+          <p class="small" style="margin-top:14px;">
+            Mets ici ton lien RSVP à la place du <code>#</code>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="benediction">
+    <div class="container">
+      <div class="gift-block">
+        <div class="card">
+          <h3 class="script">Votre présence, notre plus belle bénédiction</h3>
+          <p>
+            Le plus beau pour nous sera de vous avoir à nos côtés pour ce moment unique.
+          </p>
+          <p>
+            Et dans l’esprit du tso-drano ara-pomba malagasy, ceux qui souhaitent nous accompagner
+            d’une bénédiction en enveloppe pourront le faire en toute simplicité.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 class="script">Traditions</h3>
+          <p>
+            Un moment traditionnel de contribution <strong>(rakitra)</strong> aura lieu durant la cérémonie civile.
+          </p>
+          <p>
+            Cette section peut être ajustée si tu veux un texte plus discret ou plus élégant.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="lieu">
+    <div class="container">
+      <div class="location-box">
+        <h3 class="script">We Can’t Wait to Celebrate With You</h3>
+        <p>
+          Nous avons hâte de célébrer ce jour si spécial avec vous.
+        </p>
+        <p>
+          La cérémonie débutera à <strong>10h00 du matin</strong> à l’espace <strong>Les Colonnades</strong>,
+          sortie village Manandona, By Pass (côté Iavoloha), là où tout commencera.
+        </p>
+
+        <div class="cta-row" style="justify-content:center; position:relative; z-index:2;">
+          <a href="#" class="btn btn-gold">Voir l’adresse sur Maps</a>
+          <a href="#" class="btn btn-gold">Ajouter au calendrier</a>
+        </div>
+      </div>
+
+      <div class="map-image">
+        <!-- ========================= -->
+        <!-- IMAGE 2 : CARTE / ITINÉRAIRE -->
+        <!-- Remplace le fichier ci-dessous -->
+        <!-- par ta capture Maps -->
+        <!-- Exemple : images/itineraire-colonnades.jpg -->
+        <!-- ========================= -->
+        <img src="images/map-colonnades.jpg" alt="Carte d'accès vers Les Colonnades">
+      </div>
+
+      <p class="section-subtitle" style="margin-top:18px;">
+        Tu peux mettre ici une capture Google Maps ou une image d’itinéraire.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="details">
+    <div class="container">
+      <h2 class="section-title script">Helpful Details</h2>
+      <div class="ornament"></div>
+
+      <div class="details-grid">
+        <div class="detail-card">
+          <div class="icon">🅿️</div>
+          <h4>PARKING</h4>
+          <p>Un espace de stationnement est disponible sur place.</p>
+        </div>
+
+        <div class="detail-card">
+          <div class="icon">🕘</div>
+          <h4>HEURE D’ARRIVÉE CONSEILLÉE</h4>
+          <p>Merci d’arriver 30 minutes avant le début de la cérémonie.</p>
+        </div>
+
+        <div class="detail-card">
+          <div class="icon">📞</div>
+          <h4>CONTACT</h4>
+          <p>034 69 365 06<br>032 40 924 13</p>
+        </div>
+      </div>
+
+      <div class="cta-row" style="justify-content:center; margin-top:28px;">
+        <a href="#accueil" class="btn btn-outline" style="color:var(--navy); border-color:rgba(8,43,87,.25);">
+          Revenir à l’accueil
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>Invitation digitale S&amp;C 2026 — version HTML à remplir</p>
+  </footer>
+
+</body>
+</html>
