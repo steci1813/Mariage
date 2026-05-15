@@ -945,6 +945,41 @@
       opacity:.10;
     }
 
+
+    /* LANGUAGE SWITCH */
+    .lang-switch{
+      display:flex;
+      align-items:center;
+      gap:6px;
+      padding:5px;
+      border-radius:999px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      backdrop-filter:blur(8px);
+    }
+
+    .lang-btn{
+      border:0;
+      cursor:pointer;
+      padding:8px 12px;
+      border-radius:999px;
+      font-weight:700;
+      color:#edf1f8;
+      background:transparent;
+      transition:.25s ease;
+      font-family:"Montserrat", sans-serif;
+      font-size:.82rem;
+    }
+
+    .lang-btn.active{
+      background:linear-gradient(135deg, #f4e3b9, #d8b15a);
+      color:#0a1b35;
+      box-shadow:0 10px 18px rgba(216,177,90,.18);
+    }
+
+    .lang-btn:hover{ color:#fff8e6; }
+    .lang-btn.active:hover{ color:#0a1b35; }
+
     /* Responsive */
     @media (max-width: 1024px){
       .hero-grid,
@@ -1142,7 +1177,7 @@
   <img src="haut-enveloppe.png" alt="" class="envelope-layer envelope-front">
 
   <div class="envelope-center-text">
-    <span>Cliquez pour ouvrir l’invitation</span>
+    <span data-i18n="envelope_open">Cliquez pour ouvrir l’invitation</span>
   </div>
 </div>
   <!-- NAV -->
@@ -1157,13 +1192,20 @@
       </button>
 
       <ul class="nav-links" id="navLinks">
-        <li><a href="#accueil">Accueil</a></li>
-        <li><a href="#compte">Compte à rebours</a></li>
-        <li><a href="#programme">Programme</a></li>
-        <li><a href="#dresscode">Dress code</a></li>
-        <li><a href="#rsvp">RSVP</a></li>
-        <li><a href="#lieu">Lieu</a></li>
-        <li><a href="#details">Détails</a></li>
+        <li><a href="#accueil" data-i18n="nav_home">Accueil</a></li>
+        <li><a href="#compte" data-i18n="nav_countdown">Compte à rebours</a></li>
+        <li><a href="#programme" data-i18n="nav_program">Programme</a></li>
+        <li><a href="#dresscode" data-i18n="nav_dress">Dress code</a></li>
+        <li><a href="#rsvp" data-i18n="nav_rsvp">RSVP</a></li>
+        <li><a href="#lieu" data-i18n="nav_place">Lieu</a></li>
+        <li><a href="#details" data-i18n="nav_details">Détails</a></li>
+
+        <li>
+          <div class="lang-switch" aria-label="Choix de langue">
+            <button class="lang-btn active" type="button" data-lang="fr">FR</button>
+            <button class="lang-btn" type="button" data-lang="mg">MG</button>
+          </div>
+        </li>
       </ul>
     </div>
   </header>
@@ -1182,9 +1224,9 @@
 
       <div class="hero-grid">
         <div class="hero-copy">
-          <div class="mini">And on this beautiful day</div>
+          <div class="mini" data-i18n="hero_mini">And on this beautiful day</div>
           <h1>Stéphane &amp; Cindria</h1>
-          <h2>Say yes under the stars</h2>
+          <h2 data-i18n="hero_subtitle">Say yes under the stars</h2>
           <p>
             Nos étoiles se sont alignées… et elles nous mènent à ce jour unique.
             Nous serions heureux de vous avoir à nos côtés le <strong>18 septembre 2026</strong>
@@ -1194,13 +1236,13 @@
 
           <div class="hero-badges">
             <div class="badge">18-09-2026</div>
-            <div class="badge">10h00 du matin</div>
+            <div class="badge" data-i18n="hero_time">10h00 du matin</div>
             <div class="badge">Les Colonnades</div>
           </div>
 
           <div class="cta-row">
-            <a href="#rsvp" class="btn btn-primary">Je confirme ma présence</a>
-            <a href="#lieu" class="btn btn-secondary">Voir le lieu</a>
+            <a href="#rsvp" class="btn btn-primary" data-i18n="hero_confirm"><span data-i18n="confirm_btn">Je confirme ma présence</span></a>
+            <a href="#lieu" class="btn btn-secondary" data-i18n="hero_location">Voir le lieu</a>
           </div>
         </div>
 
@@ -1218,8 +1260,8 @@
   <section class="section" id="compte">
     <div class="container">
       <div class="section-title-wrap">
-        <div class="eyebrow">The countdown begins</div>
-        <h2 class="section-title">Le grand jour approche</h2>
+        <div class="eyebrow" data-i18n="count_eyebrow">The countdown begins</div>
+        <h2 class="section-title" data-i18n="count_title">Le grand jour approche</h2>
         <p class="section-subtitle">
           Encore un peu de temps avant de célébrer ensemble cette journée écrite dans les étoiles.
         </p>
@@ -1233,19 +1275,19 @@
         <div class="countdown-grid">
           <div class="count-box">
             <strong id="days">00</strong>
-            <span>Jours</span>
+            <span data-i18n="days">Jours</span>
           </div>
           <div class="count-box">
             <strong id="hours">00</strong>
-            <span>Heures</span>
+            <span data-i18n="hours">Heures</span>
           </div>
           <div class="count-box">
             <strong id="minutes">00</strong>
-            <span>Minutes</span>
+            <span data-i18n="minutes">Minutes</span>
           </div>
           <div class="count-box">
             <strong id="seconds">00</strong>
-            <span>Secondes</span>
+            <span data-i18n="seconds">Secondes</span>
           </div>
         </div>
       </div>
@@ -1256,8 +1298,8 @@
   <section class="section" id="programme">
     <div class="container">
       <div class="section-title-wrap">
-        <div class="eyebrow">From morning light to starlight</div>
-        <h2 class="section-title">Le programme</h2>
+        <div class="eyebrow" data-i18n="program_eyebrow">From morning light to starlight</div>
+        <h2 class="section-title" data-i18n="program_title">Le programme</h2>
         <p class="section-subtitle">
           Une journée rythmée par l’émotion, la célébration et les plus beaux souvenirs.
         </p>
@@ -1341,8 +1383,8 @@
   <section class="section" id="dresscode">
     <div class="container">
       <div class="section-title-wrap">
-        <div class="eyebrow">Elegant, luminous, unforgettable</div>
-        <h2 class="section-title">Dress code</h2>
+        <div class="eyebrow" data-i18n="dress_eyebrow">Elegant, luminous, unforgettable</div>
+        <h2 class="section-title" data-i18n="dress_title">Dress code</h2>
         <p class="section-subtitle">
           Venez sur votre 31, avec une touche subtile de lumière ou d’éclat.
         </p>
@@ -1353,7 +1395,7 @@
         <img src="5.png" alt="" class="decor dress-decor-1">
         <img src="9.png" alt="" class="decor dress-decor-2">
 
-        <h3>Sous votre plus bel éclat</h3>
+        <h3 data-i18n="dress_card_title">Sous votre plus bel éclat</h3>
         <p>
           Pour cette journée écrite dans les étoiles, nous vous invitons à adopter une tenue élégante :
           robe, costume, ensemble raffiné…
@@ -1371,10 +1413,10 @@
   <section class="section" id="rsvp">
     <div class="container">
       <div class="section-title-wrap">
-        <div class="eyebrow">Answer the invitation</div>
-        <h2 class="section-title">RSVP & diffusion en ligne</h2>
+        <div class="eyebrow" data-i18n="rsvp_eyebrow">Answer the invitation</div>
+        <h2 class="section-title" data-i18n="rsvp_title">RSVP & diffusion en ligne</h2>
         <p class="section-subtitle">
-          Merci de confirmer votre présence avant le 18 juillet 2026.
+          Merci de confirmer votre présence avant le 28 août 2026.
         </p>
         <img src="1.png" alt="" class="section-divider">
       </div>
@@ -1382,7 +1424,7 @@
       <div class="grid-2">
         <div class="info-card glass-card">
           <img src="11.png" alt="" class="corner-flower">
-          <h3>Pour nos proches à distance</h3>
+          <h3 data-i18n="online_title">Pour nos proches à distance</h3>
           <p>
             Même à distance, nous serions ravis de vous savoir parmi nous pour cette journée si spéciale.
           </p>
@@ -1390,19 +1432,19 @@
             Le lien de diffusion sera communiqué quelques jours avant le mariage.
           </p>
           <div class="cta-row" style="margin-top:18px;">
-            <a href="#" class="btn btn-secondary">Rejoindre en ligne</a>
+            <a href="#" class="btn btn-secondary" data-i18n="online_btn">Rejoindre en ligne</a>
           </div>
         </div>
 
         <div class="info-card glass-card">
           <img src="4.png" alt="" class="corner-flower" style="width:75px; top:20px; right:18px; opacity:.18;">
-          <h3>Confirme ta présence</h3>
+          <h3 data-i18n="confirm_title">Confirme ta présence</h3>
           <p>
-            Merci de nous répondre avant le <strong>18 juillet 2026</strong>.
+            Merci de nous répondre avant le <strong>28 août 2026</strong>.
           </p>
 
           <div class="calendar-box">
-            <div class="calendar-month">Juillet 2026</div>
+            <div class="calendar-month">Août 2026</div>
             <div class="calendar-grid">
               <div class="head">Lu</div>
               <div class="head">Ma</div>
@@ -1454,7 +1496,7 @@
 
           <div class="cta-row" style="margin-top:18px;">
             <a href="https://form.typeform.com/to/j8RYE30d?typeform-source=xn--stphane-portfolio-ctb.my.canva.site" class="btn btn-primary">
-              Je confirme ma présence
+              <span data-i18n="confirm_btn">Je confirme ma présence</span>
             </a>
           </div>
         </div>
@@ -1468,7 +1510,7 @@
       <div class="grid-2">
         <div class="info-card glass-card">
           <img src="2.png" alt="" class="decor gift-decor-1">
-          <h3>Votre présence, notre plus belle bénédiction</h3>
+          <h3 data-i18n="gift_title">Votre présence, notre plus belle bénédiction</h3>
           <p>
             Le plus beau cadeau pour nous sera de vous avoir à nos côtés pour ce moment unique.
           </p>
@@ -1480,7 +1522,7 @@
 
         <div class="info-card glass-card">
           <img src="5.png" alt="" class="corner-flower">
-          <h3>Traditions</h3>
+          <h3 data-i18n="traditions_title">Traditions</h3>
           <p>
             Un moment traditionnel de contribution <strong>(rakitra)</strong> aura lieu durant la cérémonie civile.
           </p>
@@ -1493,8 +1535,8 @@
   <section class="section" id="lieu">
     <div class="container">
       <div class="section-title-wrap">
-        <div class="eyebrow">Where the story continues</div>
-        <h2 class="section-title">Le lieu de réception</h2>
+        <div class="eyebrow" data-i18n="place_eyebrow">Where the story continues</div>
+        <h2 class="section-title" data-i18n="place_title">Le lieu de réception</h2>
         <p class="section-subtitle">
           Nous avons hâte de vous retrouver pour célébrer ce jour si spécial.
         </p>
@@ -1516,8 +1558,8 @@
           </p>
 
           <div class="cta-row" style="margin-top:20px;">
-            <a href="https://www.google.com/maps/place/Espace+Les+Colonnades/@-18.9878169,47.5428684,723m/data=!3m1!1e3!4m22!1m15!4m14!1m6!1m2!1s0x21f07d57cf5b39f1:0x892f55ead45b066!2sLa+Gastronomie+Pizza+-+By+Pass,+Route+Nationale+7+By-Pass+Merimanjaka+Antananarivo+MG,+102,+Antananarivo!2m2!1d47.5431158!2d-18.9848236!1m6!1m2!1s0x21f07bf4de047adb:0x8df9c0d0765ce3cb!2sEspace+Les+Colonnades,+2G6W%2BVCF,+Sortie+Village+Manandona+By+Pass+(c%C3%B4t%C3%A9+Iavoloha),+Antananarivo!2m2!1d47.5460551!2d-18.9878177!3m5!1s0x21f07bf4de047adb:0x8df9c0d0765ce3cb!8m2!3d-18.9878177!4d47.5460551!16s%2Fg%2F11b5pj3kwy?entry=ttu&g_ep=EgoyMDI2MDQxOS4wIKXMDSoASAFQAw%3D%3D" class="btn btn-primary">Voir sur Maps</a>
-            <a href="https://calendar.google.com/calendar/u/0/share?slt=1AVwTtk6iNu1RI-49xzOR8Wh4QQogyF8KAXGQatETP3bnMIurw8GY-WGYE7Cwd_ocPdalSe2GyYBOqA" class="btn btn-secondary">Ajouter au calendrier</a>
+            <a href="https://www.google.com/maps/place/Espace+Les+Colonnades/@-18.9878169,47.5428684,723m/data=!3m1!1e3!4m22!1m15!4m14!1m6!1m2!1s0x21f07d57cf5b39f1:0x892f55ead45b066!2sLa+Gastronomie+Pizza+-+By+Pass,+Route+Nationale+7+By-Pass+Merimanjaka+Antananarivo+MG,+102,+Antananarivo!2m2!1d47.5431158!2d-18.9848236!1m6!1m2!1s0x21f07bf4de047adb:0x8df9c0d0765ce3cb!2sEspace+Les+Colonnades,+2G6W%2BVCF,+Sortie+Village+Manandona+By+Pass+(c%C3%B4t%C3%A9+Iavoloha),+Antananarivo!2m2!1d47.5460551!2d-18.9878177!3m5!1s0x21f07bf4de047adb:0x8df9c0d0765ce3cb!8m2!3d-18.9878177!4d47.5460551!16s%2Fg%2F11b5pj3kwy?entry=ttu&g_ep=EgoyMDI2MDQxOS4wIKXMDSoASAFQAw%3D%3D" class="btn btn-primary" data-i18n="maps_btn">Voir sur Maps</a>
+            <a href="https://calendar.google.com/calendar/u/0/share?slt=1AVwTtk6iNu1RI-49xzOR8Wh4QQogyF8KAXGQatETP3bnMIurw8GY-WGYE7Cwd_ocPdalSe2GyYBOqA" class="btn btn-secondary" data-i18n="calendar_btn">Ajouter au calendrier</a>
           </div>
         </div>
 
@@ -1532,8 +1574,8 @@
   <section class="section" id="details">
     <div class="container">
       <div class="section-title-wrap">
-        <div class="eyebrow">Helpful details</div>
-        <h2 class="section-title">Infos pratiques</h2>
+        <div class="eyebrow" data-i18n="details_eyebrow">Helpful details</div>
+        <h2 class="section-title" data-i18n="details_title">Infos pratiques</h2>
         <p class="section-subtitle">
           Quelques repères utiles pour vivre cette journée en toute sérénité.
         </p>
@@ -1546,13 +1588,13 @@
       <div class="details-grid">
         <div class="detail-box glass-card">
 <div class="icon"><img src="parking.png" alt="Icône parking"></div>
-          <h4>PARKING</h4>
+          <h4 data-i18n="parking_title">PARKING</h4>
           <p>Un espace de stationnement est disponible sur place.</p>
         </div>
 
         <div class="detail-box glass-card">
 <div class="icon"><img src="arrivee.png" alt="Icône arrivée"></div>
-          <h4>ARRIVÉE CONSEILLÉE</h4>
+          <h4 data-i18n="arrival_title">ARRIVÉE CONSEILLÉE</h4>
           <p>Merci d’arriver 30 minutes avant le début de la cérémonie.</p>
         </div>
 
@@ -1560,7 +1602,7 @@
   <div class="icon">
     <img src="contact.png" alt="Icône contact">
   </div>
-  <h4>CONTACT</h4>
+  <h4 data-i18n="contact_title">CONTACT</h4>
   <p class="contact-links">
     <a href="tel:+261346936506">034 69 365 06</a><br>
     <a href="tel:+261324092413">032 40 924 13</a>
@@ -1649,5 +1691,121 @@
     });
   }
 </script>
+
+<script>
+  const translations = {
+    fr: {
+      envelope_open: "Cliquez pour ouvrir l’invitation",
+      nav_home: "Accueil",
+      nav_countdown: "Compte à rebours",
+      nav_program: "Programme",
+      nav_dress: "Dress code",
+      nav_rsvp: "RSVP",
+      nav_place: "Lieu",
+      nav_details: "Détails",
+      hero_mini: "And on this beautiful day",
+      hero_subtitle: "Say yes under the stars",
+      hero_time: "10h00 du matin",
+      hero_confirm: "Je confirme ma présence",
+      hero_location: "Voir le lieu",
+      count_eyebrow: "The countdown begins",
+      count_title: "Le grand jour approche",
+      days: "Jours",
+      hours: "Heures",
+      minutes: "Minutes",
+      seconds: "Secondes",
+      program_eyebrow: "From morning light to starlight",
+      program_title: "Le programme",
+      dress_eyebrow: "Elegant, luminous, unforgettable",
+      dress_title: "Dress code",
+      dress_card_title: "Sous votre plus bel éclat",
+      rsvp_eyebrow: "Answer the invitation",
+      rsvp_title: "RSVP & diffusion en ligne",
+      online_title: "Pour nos proches à distance",
+      online_btn: "Rejoindre en ligne",
+      confirm_title: "Confirme ta présence",
+      confirm_btn: "Je confirme ma présence",
+      gift_title: "Votre présence, notre plus belle bénédiction",
+      traditions_title: "Traditions",
+      place_eyebrow: "Where the story continues",
+      place_title: "Le lieu de réception",
+      maps_btn: "Voir sur Maps",
+      calendar_btn: "Ajouter au calendrier",
+      details_eyebrow: "Helpful details",
+      details_title: "Infos pratiques",
+      parking_title: "PARKING",
+      arrival_title: "ARRIVÉE CONSEILLÉE",
+      contact_title: "CONTACT"
+    },
+    mg: {
+      envelope_open: "Tsindrio hanokafana ny fanasana",
+      nav_home: "Fandraisana",
+      nav_countdown: "Fanisana miverina",
+      nav_program: "Fandaharam-potoana",
+      nav_dress: "Fomba fitafy",
+      nav_rsvp: "Fanamafisana",
+      nav_place: "Toerana",
+      nav_details: "Antsipiriany",
+      hero_mini: "Amin’ity andro mahafinaritra ity",
+      hero_subtitle: "Hiteny eny ambanin’ny kintana",
+      hero_time: "10 ora maraina",
+      hero_confirm: "Manamafy ny fahatongavako",
+      hero_location: "Hijery ny toerana",
+      count_eyebrow: "Manomboka ny fanisana",
+      count_title: "Efa manakaiky ny andro lehibe",
+      days: "Andro",
+      hours: "Ora",
+      minutes: "Minitra",
+      seconds: "Segondra",
+      program_eyebrow: "Avy amin’ny hazavan’ny maraina hatramin’ny famirapiratan’ny alina",
+      program_title: "Fandaharam-potoana",
+      dress_eyebrow: "Kanto, mamirapiratra, tsy hay hadinoina",
+      dress_title: "Fomba fitafy",
+      dress_card_title: "Amin’ny famirapiratanao tsara indrindra",
+      rsvp_eyebrow: "Valio ny fanasana",
+      rsvp_title: "Fanamafisana & fandefasana an-tserasera",
+      online_title: "Ho an’ireo havana sy namana lavitra",
+      online_btn: "Hanaraka an-tserasera",
+      confirm_title: "Hamafiso ny fahatongavanao",
+      confirm_btn: "Manamafy ny fahatongavako",
+      gift_title: "Ny fahatongavanao no tsodrano tsara indrindra ho anay",
+      traditions_title: "Fomban-drazana",
+      place_eyebrow: "Toerana hitohizan’ny tantara",
+      place_title: "Toerana handraisana",
+      maps_btn: "Hijery amin’ny Maps",
+      calendar_btn: "Ampidirina amin’ny kalandrie",
+      details_eyebrow: "Antsipiriany ilaina",
+      details_title: "Toromarika ilaina",
+      parking_title: "FIANTSONANA",
+      arrival_title: "FOTOANA TOKONY HATONGAVANA",
+      contact_title: "FIFANDRAISANA"
+    }
+  };
+
+  const langButtons = document.querySelectorAll(".lang-btn");
+
+  function setLanguage(lang){
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.dataset.i18n;
+      if(translations[lang] && translations[lang][key]){
+        el.textContent = translations[lang][key];
+      }
+    });
+
+    langButtons.forEach(btn => {
+      btn.classList.toggle("active", btn.dataset.lang === lang);
+    });
+
+    document.documentElement.lang = lang;
+    localStorage.setItem("inviteLang", lang);
+  }
+
+  langButtons.forEach(btn => {
+    btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
+  });
+
+  setLanguage(localStorage.getItem("inviteLang") || "fr");
+</script>
+
 </body>
 </html>
