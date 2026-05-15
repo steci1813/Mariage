@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Invitation digitale S&C 2026</title>
 
   <!-- Polices -->
@@ -35,83 +36,11 @@
       scroll-behavior:smooth;
     }
 
-    html, body{
+    html,
+    body{
       overflow-x:hidden;
     }
-.envelope-overlay{
-  position: fixed;
-  inset: 0;
-  z-index: 99999;
-  overflow: hidden;
-  cursor: pointer;
-  background: rgba(5, 13, 28, 0.12);
-}
 
-.envelope-layer{
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
-  transition: transform 1.25s ease-in-out, opacity 0.8s ease;
-  will-change: transform, opacity;
-  user-select: none;
-  pointer-events: none;
-}
-
-.envelope-back{
-  z-index: 1;
-}
-
-.envelope-front{
-  z-index: 2;
-}
-
-.envelope-center-text{
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
-  text-align: center;
-  pointer-events: none;
-  transition: opacity 0.35s ease;
-}
-
-.envelope-center-text span{
-  display: inline-block;
-  padding: 14px 24px;
-  border-radius: 999px;
-  background: rgba(8, 21, 42, 0.72);
-  color: #fff7e3;
-  font-size: 0.95rem;
-  letter-spacing: 0.4px;
-  box-shadow: 0 10px 25px rgba(0,0,0,.18);
-  backdrop-filter: blur(6px);
-}
-
-.envelope-overlay.open .envelope-front{
-  transform: translateY(-100%);
-  opacity: 0;
-}
-
-.envelope-overlay.open .envelope-back{
-  transform: translateY(100%);
-  opacity: 0;
-}
-
-.envelope-overlay.open .envelope-center-text{
-  opacity: 0;
-}
-
-@media (max-width: 640px){
-  .envelope-center-text span{
-    font-size: 0.88rem;
-    padding: 12px 18px;
-  }
-}
-    
     body{
       font-family:"Montserrat", sans-serif;
       color:var(--text);
@@ -120,7 +49,6 @@
       min-height:100vh;
     }
 
-    /* Fond principal */
     body::before{
       content:"";
       position:fixed;
@@ -229,7 +157,6 @@
       filter:drop-shadow(0 0 10px rgba(216,177,90,.25));
     }
 
-    /* Décors généraux */
     .decor{
       position:absolute;
       pointer-events:none;
@@ -243,7 +170,75 @@
       opacity:.55;
     }
 
-    /* TOP NAV */
+    /* ENVELOPE INTRO */
+    .envelope-overlay{
+      position:fixed;
+      inset:0;
+      z-index:99999;
+      overflow:hidden;
+      cursor:pointer;
+      background:rgba(5, 13, 28, 0.12);
+    }
+
+    .envelope-layer{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center center;
+      transition:transform 1.25s ease-in-out, opacity 0.8s ease;
+      will-change:transform, opacity;
+      user-select:none;
+      pointer-events:none;
+    }
+
+    .envelope-back{
+      z-index:1;
+    }
+
+    .envelope-front{
+      z-index:2;
+    }
+
+    .envelope-center-text{
+      position:absolute;
+      left:50%;
+      top:50%;
+      transform:translate(-50%, -50%);
+      z-index:3;
+      text-align:center;
+      pointer-events:none;
+      transition:opacity 0.35s ease;
+    }
+
+    .envelope-center-text span{
+      display:inline-block;
+      padding:14px 24px;
+      border-radius:999px;
+      background:rgba(8, 21, 42, 0.72);
+      color:#fff7e3;
+      font-size:0.95rem;
+      letter-spacing:0.4px;
+      box-shadow:0 10px 25px rgba(0,0,0,.18);
+      backdrop-filter:blur(6px);
+    }
+
+    .envelope-overlay.open .envelope-front{
+      transform:translateY(-100%);
+      opacity:0;
+    }
+
+    .envelope-overlay.open .envelope-back{
+      transform:translateY(100%);
+      opacity:0;
+    }
+
+    .envelope-overlay.open .envelope-center-text{
+      opacity:0;
+    }
+
+    /* NAV */
     .topbar{
       position:sticky;
       top:0;
@@ -324,6 +319,45 @@
       height:2px;
       background:#fff;
       border-radius:2px;
+    }
+
+    /* LANGUAGE SWITCH */
+    .lang-switch{
+      display:flex;
+      align-items:center;
+      gap:6px;
+      padding:5px;
+      border-radius:999px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      backdrop-filter:blur(8px);
+    }
+
+    .lang-btn{
+      border:0;
+      cursor:pointer;
+      padding:8px 12px;
+      border-radius:999px;
+      font-weight:700;
+      color:#edf1f8;
+      background:transparent;
+      transition:.25s ease;
+      font-family:"Montserrat", sans-serif;
+      font-size:.82rem;
+    }
+
+    .lang-btn.active{
+      background:linear-gradient(135deg, #f4e3b9, #d8b15a);
+      color:#0a1b35;
+      box-shadow:0 10px 18px rgba(216,177,90,.18);
+    }
+
+    .lang-btn:hover{
+      color:#fff8e6;
+    }
+
+    .lang-btn.active:hover{
+      color:#0a1b35;
     }
 
     /* HERO */
@@ -489,7 +523,6 @@
       pointer-events:none;
     }
 
-    /* Hero décor */
     .hero-decor-1{
       width:180px;
       top:30px;
@@ -525,6 +558,20 @@
       right:45%;
       opacity:.34;
       transform:rotate(-12deg);
+    }
+
+    .ghost-6{
+      width:90px;
+      top:18%;
+      left:3%;
+      opacity:.10;
+    }
+
+    .ghost-10{
+      width:90px;
+      bottom:12%;
+      right:3%;
+      opacity:.10;
     }
 
     @keyframes floaty{
@@ -665,6 +712,7 @@
       padding:30px 26px;
       position:relative;
       overflow:hidden;
+      min-height:100%;
     }
 
     .info-card h3{
@@ -691,8 +739,8 @@
       opacity:.15;
     }
 
-    /* RSVP */
-    .-box{
+    /* CALENDAR */
+    .calendar-box{
       margin-top:16px;
       padding:18px;
       border-radius:24px;
@@ -700,7 +748,7 @@
       border:1px solid rgba(255,255,255,.08);
     }
 
-    .-month{
+    .calendar-month{
       text-align:center;
       color:var(--gold-soft);
       margin-bottom:16px;
@@ -710,7 +758,7 @@
       font-weight:600;
     }
 
-    .-grid{
+    .calendar-grid{
       display:grid;
       grid-template-columns:repeat(7,1fr);
       gap:8px;
@@ -718,22 +766,22 @@
       text-align:center;
     }
 
-    .-grid div{
+    .calendar-grid div{
       padding:8px 0;
       border-radius:999px;
     }
 
-    .-grid .head{
+    .calendar-grid .head{
       color:#cdd8e9;
       font-size:.8rem;
       font-weight:600;
     }
 
-    .-grid .empty{
+    .calendar-grid .empty{
       opacity:0;
     }
 
-    .-grid .highlight{
+    .calendar-grid .highlight{
       background:linear-gradient(135deg, #f4e3b9, #d8b15a);
       color:#0a1b35;
       font-weight:700;
@@ -782,7 +830,7 @@
       border-radius:20px;
     }
 
-    /* Details practical */
+    /* DETAILS */
     .details-grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
@@ -803,6 +851,14 @@
       margin-bottom:10px;
     }
 
+    .detail-box .icon img{
+      width:64px;
+      height:64px;
+      object-fit:contain;
+      display:block;
+      margin:0 auto 12px;
+    }
+
     .detail-box h4{
       color:#fff5dd;
       font-size:1rem;
@@ -816,7 +872,18 @@
       font-size:.94rem;
     }
 
-    /* Footer */
+    .contact-links a{
+      color:#fff5dd;
+      text-decoration:none;
+      font-weight:600;
+      transition:.25s ease;
+    }
+
+    .contact-links a:hover{
+      color:#f2dfae;
+    }
+
+    /* FOOTER */
     .footer{
       padding:50px 0 36px;
       position:relative;
@@ -845,7 +912,7 @@
       opacity:.95;
     }
 
-    /* Décors par section */
+    /* SECTION DECORS */
     .programme-decor-1{
       width:120px;
       top:20px;
@@ -930,58 +997,8 @@
       opacity:.18;
     }
 
-    /* Images 6 et 10 si elles contiennent des éléments */
-    .ghost-6{
-      width:90px;
-      top:18%;
-      left:3%;
-      opacity:.10;
-    }
-
-    .ghost-10{
-      width:90px;
-      bottom:12%;
-      right:3%;
-      opacity:.10;
-    }
-
-
-    /* LANGUAGE SWITCH */
-    .lang-switch{
-      display:flex;
-      align-items:center;
-      gap:6px;
-      padding:5px;
-      border-radius:999px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
-      backdrop-filter:blur(8px);
-    }
-
-    .lang-btn{
-      border:0;
-      cursor:pointer;
-      padding:8px 12px;
-      border-radius:999px;
-      font-weight:700;
-      color:#edf1f8;
-      background:transparent;
-      transition:.25s ease;
-      font-family:"Montserrat", sans-serif;
-      font-size:.82rem;
-    }
-
-    .lang-btn.active{
-      background:linear-gradient(135deg, #f4e3b9, #d8b15a);
-      color:#0a1b35;
-      box-shadow:0 10px 18px rgba(216,177,90,.18);
-    }
-
-    .lang-btn:hover{ color:#fff8e6; }
-    .lang-btn.active:hover{ color:#0a1b35; }
-
-    /* Responsive */
-    @media (max-width: 1024px){
+    /* RESPONSIVE */
+    @media (max-width:1024px){
       .hero-grid,
       .grid-2,
       .location-wrap,
@@ -1016,7 +1033,7 @@
       }
     }
 
-    @media (max-width: 820px){
+    @media (max-width:820px){
       .menu-toggle{
         display:flex;
       }
@@ -1046,36 +1063,26 @@
       .hero h1{
         font-size:4.2rem;
       }
-.contact-links a{
-  color: #fff5dd;
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.25s ease;
-}
 
-.contact-links a:hover{
-  color: #f2dfae;
-}
       .hero-photo{
         min-height:400px;
       }
-      .detail-box .icon img{
-  width: 64px;
-  height: 64px;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto 12px;
-}
+
       .countdown-grid{
         grid-template-columns:repeat(2,1fr);
       }
     }
 
-    @media (max-width: 640px){
+    @media (max-width:640px){
       body::before{
         background:
           linear-gradient(rgba(5, 13, 28, .80), rgba(5, 13, 28, .84)),
           url("fond.jpg") center center / cover no-repeat;
+      }
+
+      .envelope-center-text span{
+        font-size:.88rem;
+        padding:12px 18px;
       }
 
       .section{
@@ -1171,15 +1178,19 @@
     }
   </style>
 </head>
-<body>
-<div id="envelopeOverlay" class="envelope-overlay">
-  <img src="bas-enveloppe.png" alt="" class="envelope-layer envelope-back">
-  <img src="haut-enveloppe.png" alt="" class="envelope-layer envelope-front">
 
-  <div class="envelope-center-text">
-    <span data-i18n="envelope_open">Cliquez pour ouvrir l’invitation</span>
+<body>
+
+  <!-- ENVELOPE OPENING -->
+  <div id="envelopeOverlay" class="envelope-overlay">
+    <img src="bas-enveloppe.png" alt="" class="envelope-layer envelope-back">
+    <img src="haut-enveloppe.png" alt="" class="envelope-layer envelope-front">
+
+    <div class="envelope-center-text">
+      <span data-i18n="envelope_open">Cliquez pour ouvrir l’invitation</span>
+    </div>
   </div>
-</div>
+
   <!-- NAV -->
   <header class="topbar">
     <div class="container nav">
@@ -1199,7 +1210,6 @@
         <li><a href="#rsvp" data-i18n="nav_rsvp">RSVP</a></li>
         <li><a href="#lieu" data-i18n="nav_place">Lieu</a></li>
         <li><a href="#details" data-i18n="nav_details">Détails</a></li>
-
         <li>
           <div class="lang-switch" aria-label="Choix de langue">
             <button class="lang-btn active" type="button" data-lang="fr">FR</button>
@@ -1223,11 +1233,15 @@
       <img src="10.png" alt="" class="decor ghost-10">
 
       <div class="hero-grid">
+
         <div class="hero-copy">
           <div class="mini" data-i18n="hero_mini">And on this beautiful day</div>
+
           <h1>Stéphane &amp; Cindria</h1>
+
           <h2 data-i18n="hero_subtitle">Say yes under the stars</h2>
-          <p>
+
+          <p data-i18n-html="hero_text">
             Nos étoiles se sont alignées… et elles nous mènent à ce jour unique.
             Nous serions heureux de vous avoir à nos côtés le <strong>18 septembre 2026</strong>
             à l’espace <strong>Les Colonnades</strong>, sortie village Manandona,
@@ -1241,7 +1255,7 @@
           </div>
 
           <div class="cta-row">
-            <a href="#rsvp" class="btn btn-primary" data-i18n="hero_confirm"><span data-i18n="confirm_btn">Je confirme ma présence</span></a>
+            <a href="#rsvp" class="btn btn-primary" data-i18n="hero_confirm">Je confirme ma présence</a>
             <a href="#lieu" class="btn btn-secondary" data-i18n="hero_location">Voir le lieu</a>
           </div>
         </div>
@@ -1252,6 +1266,7 @@
             <img src="photo-couple.jpg" alt="Photo du couple" class="hero-photo">
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -1259,12 +1274,16 @@
   <!-- COUNTDOWN -->
   <section class="section" id="compte">
     <div class="container">
+
       <div class="section-title-wrap">
         <div class="eyebrow" data-i18n="count_eyebrow">The countdown begins</div>
+
         <h2 class="section-title" data-i18n="count_title">Le grand jour approche</h2>
-        <p class="section-subtitle">
+
+        <p class="section-subtitle" data-i18n="count_subtitle">
           Encore un peu de temps avant de célébrer ensemble cette journée écrite dans les étoiles.
         </p>
+
         <img src="1.png" alt="" class="section-divider">
       </div>
 
@@ -1277,32 +1296,40 @@
             <strong id="days">00</strong>
             <span data-i18n="days">Jours</span>
           </div>
+
           <div class="count-box">
             <strong id="hours">00</strong>
             <span data-i18n="hours">Heures</span>
           </div>
+
           <div class="count-box">
             <strong id="minutes">00</strong>
             <span data-i18n="minutes">Minutes</span>
           </div>
+
           <div class="count-box">
             <strong id="seconds">00</strong>
             <span data-i18n="seconds">Secondes</span>
           </div>
         </div>
       </div>
+
     </div>
   </section>
 
   <!-- PROGRAMME -->
   <section class="section" id="programme">
     <div class="container">
+
       <div class="section-title-wrap">
         <div class="eyebrow" data-i18n="program_eyebrow">From morning light to starlight</div>
+
         <h2 class="section-title" data-i18n="program_title">Le programme</h2>
-        <p class="section-subtitle">
+
+        <p class="section-subtitle" data-i18n="program_subtitle">
           Une journée rythmée par l’émotion, la célébration et les plus beaux souvenirs.
         </p>
+
         <img src="1.png" alt="" class="section-divider">
       </div>
 
@@ -1311,10 +1338,11 @@
         <img src="3.png" alt="" class="decor programme-decor-2">
 
         <div class="timeline">
+
           <div class="timeline-item">
             <div class="timeline-card">
               <h3>The Promise Begins</h3>
-              <p>Vodiondry – un premier moment fort, au cœur de la tradition.</p>
+              <p data-i18n="program_1">Vodiondry – un premier moment fort, au cœur de la tradition.</p>
             </div>
             <div class="timeline-dot">1</div>
           </div>
@@ -1323,14 +1351,14 @@
             <div class="timeline-dot">2</div>
             <div class="timeline-card">
               <h3>A Toast to New Beginnings</h3>
-              <p>Cocktail de bienvenue et premiers instants de partage.</p>
+              <p data-i18n="program_2">Cocktail de bienvenue et premiers instants de partage.</p>
             </div>
           </div>
 
           <div class="timeline-item">
             <div class="timeline-card">
               <h3>Sealed Under Heaven</h3>
-              <p>Cérémonie civile et religieuse – le moment du “oui”.</p>
+              <p data-i18n="program_3">Cérémonie civile et religieuse – le moment du “oui”.</p>
             </div>
             <div class="timeline-dot">3</div>
           </div>
@@ -1339,14 +1367,14 @@
             <div class="timeline-dot">4</div>
             <div class="timeline-card">
               <h3>Captured Constellations</h3>
-              <p>Photos, animations et jolis souvenirs à capturer.</p>
+              <p data-i18n="program_4">Photos, animations et jolis souvenirs à capturer.</p>
             </div>
           </div>
 
           <div class="timeline-item">
             <div class="timeline-card">
               <h3>A Feast Among the Stars</h3>
-              <p>Dîner gastronomique dans une ambiance élégante et chaleureuse.</p>
+              <p data-i18n="program_5">Dîner gastronomique dans une ambiance élégante et chaleureuse.</p>
             </div>
             <div class="timeline-dot">5</div>
           </div>
@@ -1355,14 +1383,14 @@
             <div class="timeline-dot">6</div>
             <div class="timeline-card">
               <h3>The First Dance</h3>
-              <p>Ouverture de bal et instants suspendus.</p>
+              <p data-i18n="program_6">Ouverture de bal et instants suspendus.</p>
             </div>
           </div>
 
           <div class="timeline-item">
             <div class="timeline-card">
               <h3>A Spark in the Night</h3>
-              <p>Découpe du gâteau et mise en lumière de la soirée.</p>
+              <p data-i18n="program_7">Découpe du gâteau et mise en lumière de la soirée.</p>
             </div>
             <div class="timeline-dot">7</div>
           </div>
@@ -1371,23 +1399,29 @@
             <div class="timeline-dot">8</div>
             <div class="timeline-card">
               <h3>Dancing Through the Cosmos</h3>
-              <p>Soirée dansante jusqu’au bout de la nuit.</p>
+              <p data-i18n="program_8">Soirée dansante jusqu’au bout de la nuit.</p>
             </div>
           </div>
+
         </div>
       </div>
+
     </div>
   </section>
 
   <!-- DRESS CODE -->
   <section class="section" id="dresscode">
     <div class="container">
+
       <div class="section-title-wrap">
         <div class="eyebrow" data-i18n="dress_eyebrow">Elegant, luminous, unforgettable</div>
+
         <h2 class="section-title" data-i18n="dress_title">Dress code</h2>
-        <p class="section-subtitle">
+
+        <p class="section-subtitle" data-i18n="dress_subtitle">
           Venez sur votre 31, avec une touche subtile de lumière ou d’éclat.
         </p>
+
         <img src="1.png" alt="" class="section-divider">
       </div>
 
@@ -1396,129 +1430,156 @@
         <img src="9.png" alt="" class="decor dress-decor-2">
 
         <h3 data-i18n="dress_card_title">Sous votre plus bel éclat</h3>
-        <p>
+
+        <p data-i18n="dress_text_1">
           Pour cette journée écrite dans les étoiles, nous vous invitons à adopter une tenue élégante :
           robe, costume, ensemble raffiné…
         </p>
-        <p>
+
+        <p data-i18n="dress_text_2">
           Vous pouvez y ajouter une note lumineuse : un bijou doré, un détail scintillant,
           une matière satinée, un accessoire subtil…
         </p>
-        <p><strong>Créons ensemble une constellation d’élégance.</strong></p>
+
+        <p><strong data-i18n="dress_text_3">Créons ensemble une constellation d’élégance.</strong></p>
       </div>
+
     </div>
   </section>
 
   <!-- ONLINE + RSVP -->
   <section class="section" id="rsvp">
     <div class="container">
+
       <div class="section-title-wrap">
         <div class="eyebrow" data-i18n="rsvp_eyebrow">Answer the invitation</div>
+
         <h2 class="section-title" data-i18n="rsvp_title">RSVP & diffusion en ligne</h2>
-        <p class="section-subtitle">
-          Merci de confirmer votre présence avant le 24 août 2026.
+
+        <p class="section-subtitle" data-i18n-html="rsvp_subtitle">
+          Merci de confirmer votre présence avant le <strong>24 août 2026</strong>.
         </p>
+
         <img src="1.png" alt="" class="section-divider">
       </div>
-    <div class="info-card glass-card">
+
+      <div class="grid-2">
+
+        <!-- CONFIRMATION À GAUCHE -->
+        <div class="info-card glass-card">
           <img src="4.png" alt="" class="corner-flower" style="width:75px; top:20px; right:18px; opacity:.18;">
+
           <h3 data-i18n="confirm_title">Confirme ta présence</h3>
-          <p>
+
+          <p data-i18n-html="confirm_text">
             Merci de nous répondre avant le <strong>24 août 2026</strong>.
           </p>
 
           <div class="calendar-box">
-           <div class="calendar-month">AOÛT 2026</div>
-<div class="calendar-grid">
-  <div class="head">Lu</div>
-  <div class="head">Ma</div>
-  <div class="head">Me</div>
-  <div class="head">Je</div>
-  <div class="head">Ve</div>
-  <div class="head">Sa</div>
-  <div class="head">Di</div>
+            <div class="calendar-month" data-i18n="calendar_month">AOÛT 2026</div>
 
-  <div class="empty">0</div>
-  <div class="empty">0</div>
-  <div class="empty">0</div>
-  <div class="empty">0</div>
-  <div class="empty">0</div>
-  <div>1</div>
-  <div>2</div>
+            <div class="calendar-grid">
+              <div class="head">Lu</div>
+              <div class="head">Ma</div>
+              <div class="head">Me</div>
+              <div class="head">Je</div>
+              <div class="head">Ve</div>
+              <div class="head">Sa</div>
+              <div class="head">Di</div>
 
-  <div>3</div>
-  <div>4</div>
-  <div>5</div>
-  <div>6</div>
-  <div>7</div>
-  <div>8</div>
-  <div>9</div>
+              <!-- Août 2026 commence un samedi -->
+              <div class="empty">0</div>
+              <div class="empty">0</div>
+              <div class="empty">0</div>
+              <div class="empty">0</div>
+              <div class="empty">0</div>
+              <div>1</div>
+              <div>2</div>
 
-  <div>10</div>
-  <div>11</div>
-  <div>12</div>
-  <div>13</div>
-  <div>14</div>
-  <div>15</div>
-  <div>16</div>
+              <div>3</div>
+              <div>4</div>
+              <div>5</div>
+              <div>6</div>
+              <div>7</div>
+              <div>8</div>
+              <div>9</div>
 
-  <div>17</div>
-  <div>18</div>
-  <div>19</div>
-  <div>20</div>
-  <div>21</div>
-  <div>22</div>
-  <div>23</div>
+              <div>10</div>
+              <div>11</div>
+              <div>12</div>
+              <div>13</div>
+              <div>14</div>
+              <div>15</div>
+              <div>16</div>
 
-  <div class="highlight">24</div>
-  <div>25</div>
-  <div>26</div>
-  <div>27</div>
-  <div>28</div>
-  <div>29</div>
-  <div>30</div>
+              <div>17</div>
+              <div>18</div>
+              <div>19</div>
+              <div>20</div>
+              <div>21</div>
+              <div>22</div>
+              <div>23</div>
 
-  <div>31</div>
-</div>
+              <div class="highlight">24</div>
+              <div>25</div>
+              <div>26</div>
+              <div>27</div>
+              <div>28</div>
+              <div>29</div>
+              <div>30</div>
+
+              <div>31</div>
+            </div>
           </div>
-      <div class="grid-2">
+
+          <div class="cta-row" style="margin-top:18px;">
+            <a href="https://form.typeform.com/to/j8RYE30d?typeform-source=xn--stphane-portfolio-ctb.my.canva.site" class="btn btn-primary" data-i18n="confirm_btn">
+              Je confirme ma présence
+            </a>
+          </div>
+        </div>
+
+        <!-- DIFFUSION À DROITE -->
         <div class="info-card glass-card">
           <img src="11.png" alt="" class="corner-flower">
+
           <h3 data-i18n="online_title">Pour nos proches à distance</h3>
-          <p>
-            Même à distance, nous serions ravis de vous savoir parmi nous pour cette journée si spéciale.
+
+          <p data-i18n="online_text_1">
+            Même à distance, nous serions ravis de vous savoir parmi nous
+            pour cette journée si spéciale.
           </p>
-          <p>
+
+          <p data-i18n="online_text_2">
             Le lien de diffusion sera communiqué quelques jours avant le mariage.
           </p>
+
           <div class="cta-row" style="margin-top:18px;">
             <a href="#" class="btn btn-secondary" data-i18n="online_btn">Rejoindre en ligne</a>
           </div>
         </div>
 
-    
-
-          <div class="cta-row" style="margin-top:18px;">
-            <a href="https://form.typeform.com/to/j8RYE30d?typeform-source=xn--stphane-portfolio-ctb.my.canva.site" class="btn btn-primary">
-              <span data-i18n="confirm_btn">Je confirme ma présence</span>
-            </a>
-          </div>
-        </div>
       </div>
+
     </div>
   </section>
 
   <!-- BENEDICTION / CADEAUX -->
   <section class="section" id="benediction">
     <div class="container">
+
       <div class="grid-2">
+
         <div class="info-card glass-card">
           <img src="2.png" alt="" class="decor gift-decor-1">
+
           <h3 data-i18n="gift_title">Votre présence, notre plus belle bénédiction</h3>
-          <p>
+
+          <p data-i18n="gift_text_1">
             Le plus beau cadeau pour nous sera de vous avoir à nos côtés pour ce moment unique.
           </p>
-          <p>
+
+          <p data-i18n-html="gift_text_2">
             Et dans l’esprit du <strong>tso-drano ara-pomba malagasy</strong>,
             ceux qui souhaitent nous accompagner d’une bénédiction en enveloppe pourront le faire en toute simplicité.
           </p>
@@ -1526,63 +1587,85 @@
 
         <div class="info-card glass-card">
           <img src="5.png" alt="" class="corner-flower">
+
           <h3 data-i18n="traditions_title">Traditions</h3>
-          <p>
+
+          <p data-i18n-html="traditions_text">
             Un moment traditionnel de contribution <strong>(rakitra)</strong> aura lieu durant la cérémonie civile.
           </p>
         </div>
+
       </div>
+
     </div>
   </section>
 
   <!-- LIEU -->
   <section class="section" id="lieu">
     <div class="container">
+
       <div class="section-title-wrap">
         <div class="eyebrow" data-i18n="place_eyebrow">Where the story continues</div>
+
         <h2 class="section-title" data-i18n="place_title">Le lieu de réception</h2>
-        <p class="section-subtitle">
+
+        <p class="section-subtitle" data-i18n="place_subtitle">
           Nous avons hâte de vous retrouver pour célébrer ce jour si spécial.
         </p>
+
         <img src="1.png" alt="" class="section-divider">
       </div>
 
       <div class="location-wrap">
+
         <div class="location-card glass-card">
           <img src="3.png" alt="" class="decor location-decor-1">
           <img src="11.png" alt="" class="decor location-decor-2">
 
           <h3>Les Colonnades</h3>
-          <p>
+
+          <p data-i18n-html="place_text_1">
             La cérémonie débutera à <strong>10h00 du matin</strong> à l’espace
             <strong>Les Colonnades</strong>, sortie village Manandona, By Pass côté Iavoloha.
           </p>
-          <p>
+
+          <p data-i18n="place_text_2">
             Merci d’arriver un peu en avance pour profiter pleinement du début de la journée.
           </p>
 
           <div class="cta-row" style="margin-top:20px;">
-            <a href="https://www.google.com/maps/place/Espace+Les+Colonnades/@-18.9878169,47.5428684,723m/data=!3m1!1e3!4m22!1m15!4m14!1m6!1m2!1s0x21f07d57cf5b39f1:0x892f55ead45b066!2sLa+Gastronomie+Pizza+-+By+Pass,+Route+Nationale+7+By-Pass+Merimanjaka+Antananarivo+MG,+102,+Antananarivo!2m2!1d47.5431158!2d-18.9848236!1m6!1m2!1s0x21f07bf4de047adb:0x8df9c0d0765ce3cb!2sEspace+Les+Colonnades,+2G6W%2BVCF,+Sortie+Village+Manandona+By+Pass+(c%C3%B4t%C3%A9+Iavoloha),+Antananarivo!2m2!1d47.5460551!2d-18.9878177!3m5!1s0x21f07bf4de047adb:0x8df9c0d0765ce3cb!8m2!3d-18.9878177!4d47.5460551!16s%2Fg%2F11b5pj3kwy?entry=ttu&g_ep=EgoyMDI2MDQxOS4wIKXMDSoASAFQAw%3D%3D" class="btn btn-primary" data-i18n="maps_btn">Voir sur Maps</a>
-            <a href="https://calendar.google.com/calendar/u/0/share?slt=1AVwTtk6iNu1RI-49xzOR8Wh4QQogyF8KAXGQatETP3bnMIurw8GY-WGYE7Cwd_ocPdalSe2GyYBOqA" class="btn btn-secondary" data-i18n="calendar_btn">Ajouter au calendrier</a>
+            <a href="https://www.google.com/maps/place/Espace+Les+Colonnades/@-18.9878169,47.5428684,723m/data=!3m1!1e3!4m22!1m15!4m14!1m6!1m2!1s0x21f07d57cf5b39f1:0x892f55ead45b066!2sLa+Gastronomie+Pizza+-+By+Pass,+Route+Nationale+7+By-Pass+Merimanjaka+Antananarivo+MG,+102,+Antananarivo!2m2!1d47.5431158!2d-18.9848236!1m6!1m2!1s0x21f07bf4de047adb:0x8df9c0d0765ce3cb!2sEspace+Les+Colonnades,+2G6W%2BVCF,+Sortie+Village+Manandona+By+Pass+(c%C3%B4t%C3%A9+Iavoloha),+Antananarivo!2m2!1d47.5460551!2d-18.9878177!3m5!1s0x21f07bf4de047adb:0x8df9c0d0765ce3cb!8m2!3d-18.9878177!4d47.5460551!16s%2Fg%2F11b5pj3kwy?entry=ttu&g_ep=EgoyMDI2MDQxOS4wIKXMDSoASAFQAw%3D%3D" class="btn btn-primary" data-i18n="maps_btn">
+              Voir sur Maps
+            </a>
+
+            <a href="https://calendar.google.com/calendar/u/0/share?slt=1AVwTtk6iNu1RI-49xzOR8Wh4QQogyF8KAXGQatETP3bnMIurw8GY-WGYE7Cwd_ocPdalSe2GyYBOqA" class="btn btn-secondary" data-i18n="calendar_btn">
+              Ajouter au calendrier
+            </a>
           </div>
         </div>
 
         <div class="map-card glass-card">
           <img src="map-colonnades.jpg" alt="Carte Les Colonnades" class="main-map">
         </div>
+
       </div>
+
     </div>
   </section>
 
   <!-- DETAILS -->
   <section class="section" id="details">
     <div class="container">
+
       <div class="section-title-wrap">
         <div class="eyebrow" data-i18n="details_eyebrow">Helpful details</div>
+
         <h2 class="section-title" data-i18n="details_title">Infos pratiques</h2>
-        <p class="section-subtitle">
+
+        <p class="section-subtitle" data-i18n="details_subtitle">
           Quelques repères utiles pour vivre cette journée en toute sérénité.
         </p>
+
         <img src="1.png" alt="" class="section-divider">
       </div>
 
@@ -1590,66 +1673,83 @@
       <img src="4.png" alt="" class="decor details-decor-2">
 
       <div class="details-grid">
+
         <div class="detail-box glass-card">
-<div class="icon"><img src="parking.png" alt="Icône parking"></div>
+          <div class="icon">
+            <img src="parking.png" alt="Icône parking">
+          </div>
+
           <h4 data-i18n="parking_title">PARKING</h4>
-          <p>Un espace de stationnement est disponible sur place.</p>
+
+          <p data-i18n="parking_text">Un espace de stationnement est disponible sur place.</p>
         </div>
 
         <div class="detail-box glass-card">
-<div class="icon"><img src="arrivee.png" alt="Icône arrivée"></div>
+          <div class="icon">
+            <img src="arrivee.png" alt="Icône arrivée">
+          </div>
+
           <h4 data-i18n="arrival_title">ARRIVÉE CONSEILLÉE</h4>
-          <p>Merci d’arriver 30 minutes avant le début de la cérémonie.</p>
+
+          <p data-i18n="arrival_text">Merci d’arriver 30 minutes avant le début de la cérémonie.</p>
         </div>
 
-       <div class="detail-box glass-card">
-  <div class="icon">
-    <img src="contact.png" alt="Icône contact">
-  </div>
-  <h4 data-i18n="contact_title">CONTACT</h4>
-  <p class="contact-links">
-    <a href="tel:+261346936506">034 69 365 06</a><br>
-    <a href="tel:+261324092413">032 40 924 13</a>
-  </p>
-</div>
-        
+        <div class="detail-box glass-card">
+          <div class="icon">
+            <img src="contact.png" alt="Icône contact">
+          </div>
+
+          <h4 data-i18n="contact_title">CONTACT</h4>
+
+          <p class="contact-links">
+            <a href="tel:+261346936506">034 69 365 06</a><br>
+            <a href="tel:+261324092413">032 40 924 13</a>
+          </p>
+        </div>
+
       </div>
+
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
+
       <div class="footer-box glass-card">
         <img src="3.png" alt="" class="decor footer-decor-1">
         <img src="11.png" alt="" class="decor footer-decor-2">
 
         <img src="7.png" alt="" class="footer-divider">
-        <p>
+
+        <p data-i18n-html="footer_text">
           <strong>Stéphane &amp; Cindria</strong><br>
           Merci de faire partie de cette belle aventure.<br>
           Invitation digitale 2026 — Blue Constellation.
         </p>
       </div>
+
     </div>
   </footer>
 
   <script>
-    // Menu mobile
+    /* MENU MOBILE */
     const menuToggle = document.getElementById("menuToggle");
     const navLinks = document.getElementById("navLinks");
 
-    menuToggle.addEventListener("click", () => {
-      navLinks.classList.toggle("active");
-    });
-
-    document.querySelectorAll(".nav-links a").forEach(link => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("active");
+    if(menuToggle && navLinks){
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
       });
-    });
 
-    // Countdown
+      document.querySelectorAll(".nav-links a").forEach(link => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+        });
+      });
+    }
+
+    /* COUNTDOWN */
     const weddingDate = new Date("2026-09-18T10:00:00").getTime();
 
     function updateCountdown(){
@@ -1677,139 +1777,228 @@
 
     updateCountdown();
     setInterval(updateCountdown, 1000);
-  </script>
-  <script>
-  const envelopeOverlay = document.getElementById("envelopeOverlay");
-  let envelopeOpened = false;
 
-  if (envelopeOverlay) {
-    envelopeOverlay.addEventListener("click", () => {
-      if (envelopeOpened) return;
-      envelopeOpened = true;
+    /* ENVELOPE */
+    const envelopeOverlay = document.getElementById("envelopeOverlay");
+    let envelopeOpened = false;
 
-      envelopeOverlay.classList.add("open");
+    if(envelopeOverlay){
+      envelopeOverlay.addEventListener("click", () => {
+        if(envelopeOpened) return;
+        envelopeOpened = true;
 
-      setTimeout(() => {
-        envelopeOverlay.style.display = "none";
-      }, 1400);
-    });
-  }
-</script>
+        envelopeOverlay.classList.add("open");
 
-<script>
-  const translations = {
-    fr: {
-      envelope_open: "Cliquez pour ouvrir l’invitation",
-      nav_home: "Accueil",
-      nav_countdown: "Compte à rebours",
-      nav_program: "Programme",
-      nav_dress: "Dress code",
-      nav_rsvp: "RSVP",
-      nav_place: "Lieu",
-      nav_details: "Détails",
-      hero_mini: "And on this beautiful day",
-      hero_subtitle: "Say yes under the stars",
-      hero_time: "10h00 du matin",
-      hero_confirm: "Je confirme ma présence",
-      hero_location: "Voir le lieu",
-      count_eyebrow: "The countdown begins",
-      count_title: "Le grand jour approche",
-      days: "Jours",
-      hours: "Heures",
-      minutes: "Minutes",
-      seconds: "Secondes",
-      program_eyebrow: "From morning light to starlight",
-      program_title: "Le programme",
-      dress_eyebrow: "Elegant, luminous, unforgettable",
-      dress_title: "Dress code",
-      dress_card_title: "Sous votre plus bel éclat",
-      rsvp_eyebrow: "Answer the invitation",
-      rsvp_title: "RSVP & diffusion en ligne",
-      online_title: "Pour nos proches à distance",
-      online_btn: "Rejoindre en ligne",
-      confirm_title: "Confirme ta présence",
-      confirm_btn: "Je confirme ma présence",
-      gift_title: "Votre présence, notre plus belle bénédiction",
-      traditions_title: "Traditions",
-      place_eyebrow: "Where the story continues",
-      place_title: "Le lieu de réception",
-      maps_btn: "Voir sur Maps",
-      calendar_btn: "Ajouter au calendrier",
-      details_eyebrow: "Helpful details",
-      details_title: "Infos pratiques",
-      parking_title: "PARKING",
-      arrival_title: "ARRIVÉE CONSEILLÉE",
-      contact_title: "CONTACT"
-    },
-    mg: {
-      envelope_open: "Tsindrio hanokafana ny fanasana",
-      nav_home: "Fandraisana",
-      nav_countdown: "Fanisana miverina",
-      nav_program: "Fandaharam-potoana",
-      nav_dress: "Fomba fitafy",
-      nav_rsvp: "Fanamafisana",
-      nav_place: "Toerana",
-      nav_details: "Antsipiriany",
-      hero_mini: "Amin’ity andro mahafinaritra ity",
-      hero_subtitle: "Hiteny eny ambanin’ny kintana",
-      hero_time: "10 ora maraina",
-      hero_confirm: "Manamafy ny fahatongavako",
-      hero_location: "Hijery ny toerana",
-      count_eyebrow: "Manomboka ny fanisana",
-      count_title: "Efa manakaiky ny andro lehibe",
-      days: "Andro",
-      hours: "Ora",
-      minutes: "Minitra",
-      seconds: "Segondra",
-      program_eyebrow: "Avy amin’ny hazavan’ny maraina hatramin’ny famirapiratan’ny alina",
-      program_title: "Fandaharam-potoana",
-      dress_eyebrow: "Kanto, mamirapiratra, tsy hay hadinoina",
-      dress_title: "Fomba fitafy",
-      dress_card_title: "Amin’ny famirapiratanao tsara indrindra",
-      rsvp_eyebrow: "Valio ny fanasana",
-      rsvp_title: "Fanamafisana & fandefasana an-tserasera",
-      online_title: "Ho an’ireo havana sy namana lavitra",
-      online_btn: "Hanaraka an-tserasera",
-      confirm_title: "Hamafiso ny fahatongavanao",
-      confirm_btn: "Manamafy ny fahatongavako",
-      gift_title: "Ny fahatongavanao no tsodrano tsara indrindra ho anay",
-      traditions_title: "Fomban-drazana",
-      place_eyebrow: "Toerana hitohizan’ny tantara",
-      place_title: "Toerana handraisana",
-      maps_btn: "Hijery amin’ny Maps",
-      calendar_btn: "Ampidirina amin’ny kalandrie",
-      details_eyebrow: "Antsipiriany ilaina",
-      details_title: "Toromarika ilaina",
-      parking_title: "FIANTSONANA",
-      arrival_title: "FOTOANA TOKONY HATONGAVANA",
-      contact_title: "FIFANDRAISANA"
+        setTimeout(() => {
+          envelopeOverlay.style.display = "none";
+        }, 1400);
+      });
     }
-  };
 
-  const langButtons = document.querySelectorAll(".lang-btn");
+    /* TRANSLATIONS FR / MG */
+    const translations = {
+      fr: {
+        envelope_open: "Cliquez pour ouvrir l’invitation",
 
-  function setLanguage(lang){
-    document.querySelectorAll("[data-i18n]").forEach(el => {
-      const key = el.dataset.i18n;
-      if(translations[lang] && translations[lang][key]){
-        el.textContent = translations[lang][key];
+        nav_home: "Accueil",
+        nav_countdown: "Compte à rebours",
+        nav_program: "Programme",
+        nav_dress: "Dress code",
+        nav_rsvp: "RSVP",
+        nav_place: "Lieu",
+        nav_details: "Détails",
+
+        hero_mini: "And on this beautiful day",
+        hero_subtitle: "Say yes under the stars",
+        hero_text: "Nos étoiles se sont alignées… et elles nous mènent à ce jour unique. Nous serions heureux de vous avoir à nos côtés le <strong>18 septembre 2026</strong> à l’espace <strong>Les Colonnades</strong>, sortie village Manandona, By Pass côté Iavoloha.",
+        hero_time: "10h00 du matin",
+        hero_confirm: "Je confirme ma présence",
+        hero_location: "Voir le lieu",
+
+        count_eyebrow: "The countdown begins",
+        count_title: "Le grand jour approche",
+        count_subtitle: "Encore un peu de temps avant de célébrer ensemble cette journée écrite dans les étoiles.",
+        days: "Jours",
+        hours: "Heures",
+        minutes: "Minutes",
+        seconds: "Secondes",
+
+        program_eyebrow: "From morning light to starlight",
+        program_title: "Le programme",
+        program_subtitle: "Une journée rythmée par l’émotion, la célébration et les plus beaux souvenirs.",
+        program_1: "Vodiondry – un premier moment fort, au cœur de la tradition.",
+        program_2: "Cocktail de bienvenue et premiers instants de partage.",
+        program_3: "Cérémonie civile et religieuse – le moment du “oui”.",
+        program_4: "Photos, animations et jolis souvenirs à capturer.",
+        program_5: "Dîner gastronomique dans une ambiance élégante et chaleureuse.",
+        program_6: "Ouverture de bal et instants suspendus.",
+        program_7: "Découpe du gâteau et mise en lumière de la soirée.",
+        program_8: "Soirée dansante jusqu’au bout de la nuit.",
+
+        dress_eyebrow: "Elegant, luminous, unforgettable",
+        dress_title: "Dress code",
+        dress_subtitle: "Venez sur votre 31, avec une touche subtile de lumière ou d’éclat.",
+        dress_card_title: "Sous votre plus bel éclat",
+        dress_text_1: "Pour cette journée écrite dans les étoiles, nous vous invitons à adopter une tenue élégante : robe, costume, ensemble raffiné…",
+        dress_text_2: "Vous pouvez y ajouter une note lumineuse : un bijou doré, un détail scintillant, une matière satinée, un accessoire subtil…",
+        dress_text_3: "Créons ensemble une constellation d’élégance.",
+
+        rsvp_eyebrow: "Answer the invitation",
+        rsvp_title: "RSVP & diffusion en ligne",
+        rsvp_subtitle: "Merci de confirmer votre présence avant le <strong>24 août 2026</strong>.",
+        confirm_title: "Confirme ta présence",
+        confirm_text: "Merci de nous répondre avant le <strong>24 août 2026</strong>.",
+        calendar_month: "AOÛT 2026",
+        confirm_btn: "Je confirme ma présence",
+        online_title: "Pour nos proches à distance",
+        online_text_1: "Même à distance, nous serions ravis de vous savoir parmi nous pour cette journée si spéciale.",
+        online_text_2: "Le lien de diffusion sera communiqué quelques jours avant le mariage.",
+        online_btn: "Rejoindre en ligne",
+
+        gift_title: "Votre présence, notre plus belle bénédiction",
+        gift_text_1: "Le plus beau cadeau pour nous sera de vous avoir à nos côtés pour ce moment unique.",
+        gift_text_2: "Et dans l’esprit du <strong>tso-drano ara-pomba malagasy</strong>, ceux qui souhaitent nous accompagner d’une bénédiction en enveloppe pourront le faire en toute simplicité.",
+        traditions_title: "Traditions",
+        traditions_text: "Un moment traditionnel de contribution <strong>(rakitra)</strong> aura lieu durant la cérémonie civile.",
+
+        place_eyebrow: "Where the story continues",
+        place_title: "Le lieu de réception",
+        place_subtitle: "Nous avons hâte de vous retrouver pour célébrer ce jour si spécial.",
+        place_text_1: "La cérémonie débutera à <strong>10h00 du matin</strong> à l’espace <strong>Les Colonnades</strong>, sortie village Manandona, By Pass côté Iavoloha.",
+        place_text_2: "Merci d’arriver un peu en avance pour profiter pleinement du début de la journée.",
+        maps_btn: "Voir sur Maps",
+        calendar_btn: "Ajouter au calendrier",
+
+        details_eyebrow: "Helpful details",
+        details_title: "Infos pratiques",
+        details_subtitle: "Quelques repères utiles pour vivre cette journée en toute sérénité.",
+        parking_title: "PARKING",
+        parking_text: "Un espace de stationnement est disponible sur place.",
+        arrival_title: "ARRIVÉE CONSEILLÉE",
+        arrival_text: "Merci d’arriver 30 minutes avant le début de la cérémonie.",
+        contact_title: "CONTACT",
+
+        footer_text: "<strong>Stéphane &amp; Cindria</strong><br>Merci de faire partie de cette belle aventure.<br>Invitation digitale 2026 — Blue Constellation."
+      },
+
+      mg: {
+        envelope_open: "Tsindrio hanokafana ny fanasana",
+
+        nav_home: "Fandraisana",
+        nav_countdown: "Fanisana miverina",
+        nav_program: "Fandaharam-potoana",
+        nav_dress: "Fomba fitafy",
+        nav_rsvp: "Fanamafisana",
+        nav_place: "Toerana",
+        nav_details: "Antsipiriany",
+
+        hero_mini: "Amin’ity andro mahafinaritra ity",
+        hero_subtitle: "Hiteny eny ambanin’ny kintana",
+        hero_text: "Nifanaraka ny kintanay… ary mitondra anay ho amin’ity andro tokana ity. Faly izahay raha ho eo anilanay ianao amin’ny <strong>18 septambra 2026</strong> ao amin’ny <strong>Les Colonnades</strong>, sortie village Manandona, By Pass côté Iavoloha.",
+        hero_time: "10 ora maraina",
+        hero_confirm: "Manamafy ny fahatongavako",
+        hero_location: "Hijery ny toerana",
+
+        count_eyebrow: "Manomboka ny fanisana",
+        count_title: "Efa manakaiky ny andro lehibe",
+        count_subtitle: "Mbola fotoana kely dia hiara-hankalaza ity andro voasoratra eny amin’ny kintana ity isika.",
+        days: "Andro",
+        hours: "Ora",
+        minutes: "Minitra",
+        seconds: "Segondra",
+
+        program_eyebrow: "Avy amin’ny hazavan’ny maraina hatramin’ny famirapiratan’ny alina",
+        program_title: "Fandaharam-potoana",
+        program_subtitle: "Andro iray feno fihetseham-po, fankalazana ary fahatsiarovana tsara indrindra.",
+        program_1: "Vodiondry – fotoana manan-danja voalohany ao anatin’ny fomban-drazana.",
+        program_2: "Cocktail fandraisana sy fotoana voalohany iarahana mizara.",
+        program_3: "Lanonana sivily sy ara-pivavahana – fotoana hitenenana hoe “eny”.",
+        program_4: "Sary, animation ary fahatsiarovana tsara alaina.",
+        program_5: "Sakafo hariva kanto ao anaty rivo-piainana mafana sy manja.",
+        program_6: "Fanokafana dihy sy fotoana mampihetsi-po.",
+        program_7: "Fanapahana mofomamy sy fampamirapiratana ny alina.",
+        program_8: "Dihy sy fety mandra-pahatapitry ny alina.",
+
+        dress_eyebrow: "Kanto, mamirapiratra, tsy hay hadinoina",
+        dress_title: "Fomba fitafy",
+        dress_subtitle: "Miangavy anao hiakanjo kanto, miaraka amin’ny antsipiriany mamirapiratra malefaka.",
+        dress_card_title: "Amin’ny famirapiratanao tsara indrindra",
+        dress_text_1: "Ho an’ity andro voasoratra eny amin’ny kintana ity, manasa anao izahay hisafidy fitafy kanto : robe, costume, ensemble raitra…",
+        dress_text_2: "Azonao ampiana antsipiriany mamirapiratra : firavaka volamena, zavatra manjelanjelatra, lamba satinée, na accessoire malefaka…",
+        dress_text_3: "Andao hiara-hamorona constellation feno hakanto.",
+
+        rsvp_eyebrow: "Valio ny fanasana",
+        rsvp_title: "Fanamafisana & fandefasana an-tserasera",
+        rsvp_subtitle: "Azafady hamafiso ny fahatongavanao alohan’ny <strong>24 Aogositra 2026</strong>.",
+        confirm_title: "Hamafiso ny fahatongavanao",
+        confirm_text: "Azafady valio izahay alohan’ny <strong>24 Aogositra 2026</strong>.",
+        calendar_month: "AOGOSITRA 2026",
+        confirm_btn: "Manamafy ny fahatongavako",
+        online_title: "Ho an’ireo havana sy namana lavitra",
+        online_text_1: "Na dia lavitra aza ianareo, faly izahay raha afaka miaraka aminay amin’ity andro manokana ity.",
+        online_text_2: "Hampitaina andro vitsivitsy mialoha ny mariazy ny rohy hijerena an-tserasera.",
+        online_btn: "Hanaraka an-tserasera",
+
+        gift_title: "Ny fahatongavanao no tsodrano tsara indrindra ho anay",
+        gift_text_1: "Ny fanatrehanao anay amin’io fotoana tokana io no fanomezana sarobidy indrindra.",
+        gift_text_2: "Ao anatin’ny toe-tsain’ny <strong>tso-drano ara-pomba malagasy</strong>, ireo izay maniry hanolotra tso-drano anaty valopy dia afaka manao izany am-pitiavana.",
+        traditions_title: "Fomban-drazana",
+        traditions_text: "Hisy fotoana nentim-paharazana hanaovana <strong>rakitra</strong> mandritra ny lanonana sivily.",
+
+        place_eyebrow: "Toerana hitohizan’ny tantara",
+        place_title: "Toerana handraisana",
+        place_subtitle: "Tsy andrinay ny hihaona aminareo hankalaza ity andro manokana ity.",
+        place_text_1: "Hanomboka amin’ny <strong>10 ora maraina</strong> ny lanonana ao amin’ny <strong>Les Colonnades</strong>, sortie village Manandona, By Pass côté Iavoloha.",
+        place_text_2: "Azafady tongava mialoha kely mba hahafahana mankafy tsara ny fiandohan’ny andro.",
+        maps_btn: "Hijery amin’ny Maps",
+        calendar_btn: "Ampidirina amin’ny kalandrie",
+
+        details_eyebrow: "Antsipiriany ilaina",
+        details_title: "Toromarika ilaina",
+        details_subtitle: "Ireto misy fampahafantarana hanampy anao hiaina am-pilaminana ity andro ity.",
+        parking_title: "FIANTSONANA",
+        parking_text: "Misy toerana fiantsonana ao an-toerana.",
+        arrival_title: "FOTOANA TOKONY HATONGAVANA",
+        arrival_text: "Azafady tongava 30 minitra mialoha ny fanombohan’ny lanonana.",
+        contact_title: "FIFANDRAISANA",
+
+        footer_text: "<strong>Stéphane &amp; Cindria</strong><br>Misaotra anao mandray anjara amin’ity tantara mahafinaritra ity.<br>Fanasana nomerika 2026 — Blue Constellation."
       }
-    });
+    };
+
+    const langButtons = document.querySelectorAll(".lang-btn");
+
+    function setLanguage(lang){
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+
+        if(translations[lang] && translations[lang][key]){
+          el.textContent = translations[lang][key];
+        }
+      });
+
+      document.querySelectorAll("[data-i18n-html]").forEach(el => {
+        const key = el.getAttribute("data-i18n-html");
+
+        if(translations[lang] && translations[lang][key]){
+          el.innerHTML = translations[lang][key];
+        }
+      });
+
+      langButtons.forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.lang === lang);
+      });
+
+      document.documentElement.lang = lang === "mg" ? "mg" : "fr";
+      localStorage.setItem("inviteLang", lang);
+    }
 
     langButtons.forEach(btn => {
-      btn.classList.toggle("active", btn.dataset.lang === lang);
+      btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
     });
 
-    document.documentElement.lang = lang;
-    localStorage.setItem("inviteLang", lang);
-  }
-
-  langButtons.forEach(btn => {
-    btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
-  });
-
-  setLanguage(localStorage.getItem("inviteLang") || "fr");
-</script>
+    setLanguage(localStorage.getItem("inviteLang") || "fr");
+  </script>
 
 </body>
 </html>
