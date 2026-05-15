@@ -692,7 +692,7 @@
     }
 
     /* RSVP */
-    .calendar-box{
+    .-box{
       margin-top:16px;
       padding:18px;
       border-radius:24px;
@@ -700,7 +700,7 @@
       border:1px solid rgba(255,255,255,.08);
     }
 
-    .calendar-month{
+    .-month{
       text-align:center;
       color:var(--gold-soft);
       margin-bottom:16px;
@@ -710,7 +710,7 @@
       font-weight:600;
     }
 
-    .calendar-grid{
+    .-grid{
       display:grid;
       grid-template-columns:repeat(7,1fr);
       gap:8px;
@@ -718,22 +718,22 @@
       text-align:center;
     }
 
-    .calendar-grid div{
+    .-grid div{
       padding:8px 0;
       border-radius:999px;
     }
 
-    .calendar-grid .head{
+    .-grid .head{
       color:#cdd8e9;
       font-size:.8rem;
       font-weight:600;
     }
 
-    .calendar-grid .empty{
+    .-grid .empty{
       opacity:0;
     }
 
-    .calendar-grid .highlight{
+    .-grid .highlight{
       background:linear-gradient(135deg, #f4e3b9, #d8b15a);
       color:#0a1b35;
       font-weight:700;
@@ -1420,7 +1420,67 @@
         </p>
         <img src="1.png" alt="" class="section-divider">
       </div>
+    <div class="info-card glass-card">
+          <img src="4.png" alt="" class="corner-flower" style="width:75px; top:20px; right:18px; opacity:.18;">
+          <h3 data-i18n="confirm_title">Confirme ta présence</h3>
+          <p>
+            Merci de nous répondre avant le <strong>24 août 2026</strong>.
+          </p>
 
+          <div class="calendar-box">
+           <div class="calendar-month">AOÛT 2026</div>
+<div class="calendar-grid">
+  <div class="head">Lu</div>
+  <div class="head">Ma</div>
+  <div class="head">Me</div>
+  <div class="head">Je</div>
+  <div class="head">Ve</div>
+  <div class="head">Sa</div>
+  <div class="head">Di</div>
+
+  <div class="empty">0</div>
+  <div class="empty">0</div>
+  <div class="empty">0</div>
+  <div class="empty">0</div>
+  <div class="empty">0</div>
+  <div>1</div>
+  <div>2</div>
+
+  <div>3</div>
+  <div>4</div>
+  <div>5</div>
+  <div>6</div>
+  <div>7</div>
+  <div>8</div>
+  <div>9</div>
+
+  <div>10</div>
+  <div>11</div>
+  <div>12</div>
+  <div>13</div>
+  <div>14</div>
+  <div>15</div>
+  <div>16</div>
+
+  <div>17</div>
+  <div>18</div>
+  <div>19</div>
+  <div>20</div>
+  <div>21</div>
+  <div>22</div>
+  <div>23</div>
+
+  <div class="highlight">24</div>
+  <div>25</div>
+  <div>26</div>
+  <div>27</div>
+  <div>28</div>
+  <div>29</div>
+  <div>30</div>
+
+  <div>31</div>
+</div>
+          </div>
       <div class="grid-2">
         <div class="info-card glass-card">
           <img src="11.png" alt="" class="corner-flower">
@@ -1436,63 +1496,7 @@
           </div>
         </div>
 
-        <div class="info-card glass-card">
-          <img src="4.png" alt="" class="corner-flower" style="width:75px; top:20px; right:18px; opacity:.18;">
-          <h3 data-i18n="confirm_title">Confirme ta présence</h3>
-          <p>
-            Merci de nous répondre avant le <strong>24 août 2026</strong>.
-          </p>
-
-          <div class="calendar-box">
-            <div class="calendar-month">Août 2026</div>
-            <div class="calendar-grid">
-              <div class="head">Lu</div>
-              <div class="head">Ma</div>
-              <div class="head">Me</div>
-              <div class="head">Je</div>
-              <div class="head">Ve</div>
-              <div class="head">Sa</div>
-              <div class="head">Di</div>
-
-              <div class="empty">0</div>
-              <div class="empty">0</div>
-              <div>1</div>
-              <div>2</div>
-              <div>3</div>
-              <div>4</div>
-              <div>5</div>
-
-              <div>6</div>
-              <div>7</div>
-              <div>8</div>
-              <div>9</div>
-              <div>10</div>
-              <div>11</div>
-              <div>12</div>
-
-              <div>13</div>
-              <div>14</div>
-              <div>15</div>
-              <div>16</div>
-              <div>17</div>
-              <div class="highlight">24</div>
-              <div>19</div>
-
-              <div>20</div>
-              <div>21</div>
-              <div>22</div>
-              <div>23</div>
-              <div>24</div>
-              <div>25</div>
-              <div>26</div>
-
-              <div>27</div>
-              <div>28</div>
-              <div>29</div>
-              <div>30</div>
-              <div>31</div>
-            </div>
-          </div>
+    
 
           <div class="cta-row" style="margin-top:18px;">
             <a href="https://form.typeform.com/to/j8RYE30d?typeform-source=xn--stphane-portfolio-ctb.my.canva.site" class="btn btn-primary">
